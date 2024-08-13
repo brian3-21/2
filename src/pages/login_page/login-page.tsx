@@ -11,6 +11,10 @@ const supabase = createClient(
 export default function LoginPage() {
   const [session, setSession] = useState<Session | null>(null)
 
+
+  
+  
+
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session)
@@ -22,6 +26,8 @@ export default function LoginPage() {
       setSession(session)
     })
 
+    
+
     return () => subscription.unsubscribe()
   }, [])
 
@@ -30,12 +36,14 @@ export default function LoginPage() {
       <Auth
         supabaseClient={supabase}
         appearance={{ theme: ThemeSupa }}
-        providers={['google', 'github']} // Incluye solo los proveedores deseados
+        providers={['github']} // Incluye solo los proveedores deseados
         dark= {true}
+        magicLink = {true} 
         theme='dark'
+        
       />
     )
   } else {
-    return (<div>Logged in!</div>)
+    return (<div>Te logueaste :D</div>)
   }
 }
