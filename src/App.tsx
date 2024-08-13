@@ -1,10 +1,13 @@
 import './App.css'
-import Dashboard from './components/dashboard/dashboard-component'
+import Test from './components/test_component/test-component'
+import LoginPage from './pages/login_page/login-page'
+
 
 function App() {
   return (
     <>
-      <Dashboard/>
+      <Test/>
+      <LoginPage/>
     </>
   )
 }
