@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { createClient, Session } from '@supabase/supabase-js'
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
+import Test from '../../components/test_component/test-component';
+import { noop } from 'chart.js/helpers';
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
@@ -12,7 +14,11 @@ export default function LoginPage() {
   const [session, setSession] = useState<Session | null>(null)
 
 
-  
+  const handleLogout = async () => {
+    await supabase.auth.signOut(); // Desloguear al usuario
+    setSession(null); // Limpiar la sesión
+    // navigate('/'); // Redirigir a la pantalla principal
+  };
   
 
   useEffect(() => {
@@ -36,14 +42,17 @@ export default function LoginPage() {
       <Auth
         supabaseClient={supabase}
         appearance={{ theme: ThemeSupa }}
-        providers={['github']} // Incluye solo los proveedores deseados
+        providers={[]} // Incluye solo los proveedores deseados
         dark= {true}
-        magicLink = {true} 
         theme='dark'
         
       />
     )
   } else {
-    return (<div>Te logueaste :D</div>)
+    return (
+      <>
+        <button onClick={handleLogout}>Back</button>
+      </>
+    )
   }
 }
