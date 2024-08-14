@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react'
 import { createClient, Session } from '@supabase/supabase-js'
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
-import Test from '../../components/test_component/test-component';
-import { noop } from 'chart.js/helpers';
+
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
