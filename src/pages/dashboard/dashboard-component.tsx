@@ -11,7 +11,7 @@ interface Money {
 }
 
 export default function Dashboard() {
-  const [userData, setUserData] = useState<Money | null>(null);
+  const [ userData, setUserData] = useState<Money | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -63,6 +63,7 @@ export default function Dashboard() {
         <pre>
           {/* Puedes mostrar la información del usuario aquí */}
           {JSON.stringify(userData, null, 2)}
+          {`numero: ${userData.long_term}`}
         </pre>
       </div>
     </>
