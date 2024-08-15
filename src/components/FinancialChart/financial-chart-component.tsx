@@ -14,8 +14,6 @@ const FinancialChart = ({dataChart}:FinancialChartProps ) => {
     const ctx = chartRef.current.getContext('2d');
     if (!ctx) return;
 
-    const numero = dataChart.long_term;
-
 
     const chart = new Chart(ctx, {
       type: 'pie',
