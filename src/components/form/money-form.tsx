@@ -1,15 +1,25 @@
+import './form.css'
 import { useState } from "react";
 import { MoneyClass } from "../../utils/class";
 
+
 export default function MoneyForm() {
     // Estado para almacenar los datos del formulario
-    const [formData, setFormData] = useState<MoneyClass | null>();
+    const [formData, setFormData] = useState<MoneyClass | null>(null);
 
     // Función para manejar el cambio en los inputs
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        console.log("el name", name ),
-        console.log("el value",value )// Actualiza el estado con el nuevo valor
+        console.log("el name", name);
+        console.log("el value", value);
+
+        // Actualiza el estado con el nuevo valor
+        setFormData((e) => {
+            if (e === null) {
+                return { short_term: 0, medium_term: 0, long_term: 0, [name]: Number(value) };
+            }
+            return { ...e, [name]: Number(value) };
+        });
     };
 
     // Función para manejar el envío del formulario
@@ -28,7 +38,7 @@ export default function MoneyForm() {
                 <label htmlFor="short">Corto plazo: </label>
                 <input
                     type="number"
-                    name="short"
+                    name="short_term"
                     value={formData?.short_term}
                     onChange={handleChange} // Llama a handleChange al cambiar
                 />
@@ -36,7 +46,7 @@ export default function MoneyForm() {
                 <label htmlFor="medium">Medio plazo: </label>
                 <input
                     type="number"
-                    name="medium"
+                    name="medium_term"
                     value={formData?.medium_term}
                     onChange={handleChange} // Llama a handleChange al cambiar
                 />
@@ -44,12 +54,12 @@ export default function MoneyForm() {
                 <label htmlFor="long">Largo plazo: </label>
                 <input
                     type="number"
-                    name="long" // Corrige el nombre a 'long'
+                    name="long_term"
                     value={formData?.long_term}
                     onChange={handleChange} // Llama a handleChange al cambiar
                 />
 
-                <input type="submit" />
+                <input type="submit" title='submit' />
             </form>
         </div>
     );

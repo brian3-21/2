@@ -1,0 +1,59 @@
+/* Estilos para el contenedor del formulario */
+.container {
+    background-color: #1a1d23;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el título del formulario */
+.container h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Estilos para las etiquetas del formulario */
+.container label {
+    display: block;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los inputs del formulario */
+.container input[type="number"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2f343a;
+    color: #fff;
+}
+
+/* Estilos para el botón de envío del formulario */
+.container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilos para el botón de envío del formulario al hacer hover */
+.container input[type="submit"]:hover {
+    background-color: #2bb564;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
