@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './dashboard.css';
 import FinancialChart from '../../components/FinancialChart/financial-chart-component';
 import { supabase } from '../../services/supabase/create-client-supabase';
-import { Money, MoneyUser } from '../../utils/interfase';
+import { MoneyUser } from '../../utils/interfase';
 
 
 

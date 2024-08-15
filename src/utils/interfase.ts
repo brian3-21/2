@@ -1,10 +1,12 @@
+import { MoneyClass } from "./class";
+
 export interface FinancialChartProps{
   dataChart:MoneyUser
 }
 
-export interface MoneyUser{
+export interface MoneyUser {
   id:string,
-  money:Money,
+  money:MoneyClass,
 }
 
 export interface Money {
