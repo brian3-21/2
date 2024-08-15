@@ -25,9 +25,9 @@ export default function Dashboard() {
 
           // Obtenemos los datos del usuario desde la tabla `money`
           const { data, error } = await supabase
-            .from('money')
+            .from('Money')
             .select('*')
-            .eq('user_id', userId)
+            .eq('id', userId)
             .single();
 
           if (error) {
