@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import './dashboard.css';
 import FinancialChart from '../../components/FinancialChart/financial-chart-component';
 import { supabase } from '../../services/supabase/create-client-supabase';
-import { Money } from '../../utils/interfase';
+import { Money, MoneyUser } from '../../utils/interfase';
 
 
 
 export default function Dashboard() {
-  const [ userData, setUserData] = useState<Money | null>(null);
+  const [ userData, setUserData] = useState<MoneyUser | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function Dashboard() {
           if (error) {
             console.error('Error fetching user data:', error);
           } else {
-            setUserData(data as Money);
+            setUserData(data as MoneyUser);
           }
         }
       } catch (error) {
@@ -59,7 +59,7 @@ export default function Dashboard() {
         <pre>
           {/* Puedes mostrar la información del usuario aquí */}
           {JSON.stringify(userData, null, 2)}
-          {`numero: ${userData.long_term}`}
+          {`numero: ${userData.money.long_term}`}
         </pre>
       </div>
     </>
