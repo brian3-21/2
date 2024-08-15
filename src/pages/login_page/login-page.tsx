@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
-import { createClient, Session } from '@supabase/supabase-js'
+
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
+import Dashboard from '../dashboard/dashboard-component';
+import { supabase } from '../../services/supabase/create-client-supabase';
+import { Session } from '@supabase/supabase-js';
 
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+
 
 export default function LoginPage() {
   const [session, setSession] = useState<Session | null>(null)
@@ -51,6 +51,7 @@ export default function LoginPage() {
     return (
       <>
         <button onClick={handleLogout}>Back</button>
+        <Dashboard/>
       </>
     )
   }
