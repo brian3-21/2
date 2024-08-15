@@ -2,13 +2,9 @@ import { useState, useEffect } from 'react';
 import './dashboard.css';
 import FinancialChart from '../../components/FinancialChart/financial-chart-component';
 import { supabase } from '../../services/supabase/create-client-supabase';
+import { Money } from '../../utils/interfase';
 
-interface Money {
-  id: string;
-  short_term: number;
-  medium_term: number;
-  long_term: number;
-}
+
 
 export default function Dashboard() {
   const [ userData, setUserData] = useState<Money | null>(null);
@@ -57,7 +53,7 @@ export default function Dashboard() {
   return (
     <>
       <div className="chart-container">
-        <FinancialChart /> {/* Pasas la data a tu componente de gráficos */}
+        <FinancialChart  dataChart={userData} /> {/* Pasas la data a tu componente de gráficos */}
       </div>
       <div className="user-info">
         <pre>

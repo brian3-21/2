@@ -1,10 +1,11 @@
 import './financial.css'
 import { useEffect, useRef } from 'react';
 import { Chart, registerables } from 'chart.js';
+import { FinancialChartProps } from '../../utils/interfase';
 
 Chart.register(...registerables);
 
-const FinancialChart = () => {
+const FinancialChart = ({dataChart}:FinancialChartProps ) => {
   const chartRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -13,13 +14,16 @@ const FinancialChart = () => {
     const ctx = chartRef.current.getContext('2d');
     if (!ctx) return;
 
+    const numero = dataChart.long_term;
+
+
     const chart = new Chart(ctx, {
       type: 'pie',
       data: {
         labels: ['Corto plazo', 'Mediano plazo', 'Largo plazo'],
         datasets: [{
           label: 'pap',
-          data: [1200, 2000, 3400],
+          data: [dataChart.short_term, dataChart.medium_term, dataChart.long_term],
           borderWidth: .1,
           borderColor: '#000',
           backgroundColor: [
