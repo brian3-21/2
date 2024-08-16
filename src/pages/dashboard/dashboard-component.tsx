@@ -56,11 +56,7 @@ export default function Dashboard() {
         <FinancialChart  dataChart={userData} /> {/* Pasas la data a tu componente de gráficos */}
       </div>
       <div className="user-info">
-        <pre>
-          {/* Puedes mostrar la información del usuario aquí */}
-          {JSON.stringify(userData, null, 2)}
-          {`numero: ${userData.money.long_term}`}
-        </pre>
+       
       </div>
     </>
   );

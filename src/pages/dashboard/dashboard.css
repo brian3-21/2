@@ -1,6 +1,6 @@
 .chart-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
     width: 80%;
     height: 80vh; /* Ajusta el alto según sea necesario */

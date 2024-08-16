@@ -1,4 +1,4 @@
-import { MoneyClass } from "./class";
+
 
 export interface FinancialChartProps{
   dataChart:MoneyUser
@@ -6,7 +6,7 @@ export interface FinancialChartProps{
 
 export interface MoneyUser {
   id:string,
-  money:MoneyClass,
+  money:Money,
 }
 
 export interface Money {

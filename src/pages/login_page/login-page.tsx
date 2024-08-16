@@ -16,7 +16,6 @@ export default function LoginPage() {
   const handleLogout = async () => {
     await supabase.auth.signOut(); // Desloguear al usuario
     setSession(null); // Limpiar la sesión
-    // navigate('/'); // Redirigir a la pantalla principal
   };
   
 
@@ -50,8 +49,8 @@ export default function LoginPage() {
   } else {
     return (
       <>
-        <button onClick={handleLogout}>Back</button>
         <Dashboard/>
+        <button onClick={handleLogout}>Back</button>
       </>
     )
   }

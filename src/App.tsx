@@ -1,13 +1,12 @@
 import './App.css'
-import MoneyForm from './components/form/money-form'
+import Dashboard from './pages/dashboard/dashboard-component'
 import LoginPage from './pages/login_page/login-page'
 
 
 function App() {
   return (
     <>
-      {/* <Test/> */}
-      <MoneyForm/>
+      <Dashboard/>
     </>
   )
 }
