@@ -1,7 +1,8 @@
 import { createContext, useState } from "react";
+import { MoneyUser } from "../utils/interfase";
 
 interface AuthContextProps {
-    user: any;
+    user: MoneyUser | null;
     login: (user: any) => void;
     logout: () => void;
 }
@@ -13,9 +14,9 @@ const AuthContext = createContext<AuthContextProps>({
 });
 
 export const AuthProvider = ({ children }: any) => {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState<MoneyUser | null>(null);
 
-    const login = (user: any) => {
+    const login = (user: MoneyUser | null) => {
         setUser(user);
     };
 
