@@ -3,6 +3,7 @@ import './dashboard.css';
 import FinancialChart from '../../components/FinancialChart/financial-chart-component';
 import { supabase } from '../../services/supabase/create-client-supabase';
 import { MoneyUser } from '../../utils/interfase';
+import AddButom from '../../components/add_buttom/add-buttom';
 
 
 
@@ -53,10 +54,10 @@ export default function Dashboard() {
   return (
     <>
       <div className="chart-container">
-        <FinancialChart  dataChart={userData} /> {/* Pasas la data a tu componente de gráficos */}
+        <FinancialChart  dataChart={userData.money} /> {/* Pasas la data a tu componente de gráficos */}
       </div>
       <div className="user-info">
-       
+        <AddButom/>
       </div>
     </>
   );
