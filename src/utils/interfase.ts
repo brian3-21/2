@@ -1,7 +1,7 @@
 
 
 export interface FinancialChartProps{
-  dataChart:MoneyUser
+  dataChart:MoneyUser,
 }
 
 export interface MoneyUser {
