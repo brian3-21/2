@@ -6,7 +6,7 @@ import LoginPage from './pages/login_page/login-page'
 function App() {
   return (
     <>
-      <Dashboard/>
+      <LoginPage/>
     </>
   )
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import '../login_page/login-page.css'
 
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
