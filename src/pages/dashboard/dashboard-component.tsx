@@ -55,7 +55,7 @@ export default function Dashboard() {
     <>
       <div className="dasboardContainer">
         <div className="chart-container">
-          <FinancialChart  dataChart={userData.money} /> {/* Pasas la data a tu componente de gráficos */}
+          <FinancialChart  dataChart={userData.money} /> 
         </div>
         <div className="div-buttom">
           <AddButom/>

@@ -1,16 +1,13 @@
 
 
 export interface FinancialChartProps{
-  dataChart:Money
+  dataChart:MoneyUser
 }
 
 export interface MoneyUser {
   id:string,
-  money:Money,
+  short_term: number;
+  medium_term: number;
+  long_term: number;
+  
 }
-
-export interface Money {
-    short_term: number;
-    medium_term: number;
-    long_term: number;
-  }
