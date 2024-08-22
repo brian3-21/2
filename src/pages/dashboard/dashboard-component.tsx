@@ -11,6 +11,7 @@ export default function Dashboard() {
   const [ userData, setUserData] = useState<MoneyUser | null>(null);
   const [loading, setLoading] = useState(true);
 
+  
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -56,6 +57,12 @@ export default function Dashboard() {
       <div className="dasboardContainer">
         <div className="chart-container">
           <FinancialChart  dataChart={userData} /> 
+        </div>
+        <div className="add-monto-container">
+          <div className="form-monto">
+            <label htmlFor="text">Largo plaso</label>
+            <button>add</button>
+          </div>
         </div>
       </div>
       
