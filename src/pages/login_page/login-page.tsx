@@ -4,9 +4,9 @@ import '../login_page/login-page.css'
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 import Dashboard from '../dashboard/dashboard-component';
-import { supabase } from '../../services/supabase/create-client-supabase';
 import { Session } from '@supabase/supabase-js';
 
+import { supabase } from '../../services/supabase/create-client-supabase';
 
 
 

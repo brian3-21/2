@@ -1,6 +1,6 @@
 import './App.css'
 import Dashboard from './pages/dashboard/dashboard-component'
-import LoginPage from './pages/login_page/login-page'
+import LoginPage from './pages/login_page/login'
 
 
 function App() {
