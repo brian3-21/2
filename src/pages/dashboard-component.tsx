@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'; 
 import './dashboard.css';
-import FinancialChart from '../../components/FinancialChart/financial-chart-component';
-import { supabase } from '../../services/supabase/create-client-supabase';
-import { MoneyUser } from '../../utils/interfase';
-import AddButom from '../../components/add_buttom/add-buttom';
+import FinancialChart from '../components/financial-chart-component';
+import { supabase } from '../services/supabase/create-client-supabase';
+import { MoneyUser } from '../utils/interfase';
 
 
 

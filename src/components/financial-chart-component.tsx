@@ -1,7 +1,7 @@
 import './financial.css'
 import { useEffect, useRef } from 'react';
 import { Chart, registerables } from 'chart.js';
-import { FinancialChartProps } from '../../utils/interfase';
+import { FinancialChartProps } from '../utils/interfase';
 
 Chart.register(...registerables);
 
