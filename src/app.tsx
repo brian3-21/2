@@ -34,7 +34,10 @@ export default function App(){
 
 
       return(
-        <RouterProvider router={router} />
+        // <RouterProvider router={router} />
+        <div className="App">
+            <h1 className="text-3xl text-center font-bold underline">Hello world!</h1>
+        </div>
       )
 
 
