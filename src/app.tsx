@@ -9,6 +9,7 @@ export default function App(){
         supabase.auth.onAuthStateChange((event:string, session:any) =>{
           if(!session){
             console.log("No estas logueado");
+            console.log(session)
           }else{
             console.log("Si estas logueado");
           }
