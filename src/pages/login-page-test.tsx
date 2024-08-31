@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import './login_page/login-page.css'
+import './login-page.css'
 
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
@@ -20,21 +20,7 @@ export default function LoginPage() {
   };
   
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-    })
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
-
-    
-
-    return () => subscription.unsubscribe()
-  }, [])
+ 
 
   if (!session) {
     return (
@@ -50,8 +36,8 @@ export default function LoginPage() {
   } else {
     return (
       <>
-        <Dashboard/>
-        <button onClick={handleLogout}>Back</button>
+        <h2>test</h2>
+        <button onClick={ handleLogout}>logout</button>
       </>
     )
   }

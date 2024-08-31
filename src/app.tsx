@@ -1,24 +1,13 @@
-import { supabase } from "./services/supabase/create-client-supabase";
-import { useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./pages/login";
 import TestPage from "./pages/test-page";
 
 export default function App(){
-    useEffect(() => {
-        supabase.auth.onAuthStateChange((event:string, session:any) =>{
-          if(!session){
-            console.log("No estas logueado");
-            console.log(session)
-          }else{
-            console.log("Si estas logueado");
-          }
-        })
-      }, []);
-      
+
+  
       const router = createBrowserRouter([
         {
-          path: "2",
+          path: "2/login",
           element: <LoginPage/>,
           errorElement: <TestPage props='No existe la pagina' />,
         },
@@ -27,6 +16,11 @@ export default function App(){
           element: <TestPage props='ruta *'/>,
           errorElement: <TestPage props='Error element'/>,
         },
+        {
+          path: "2/test",
+          element: <TestPage props='wiri wiri'/>,
+          errorElement: <TestPage props='test'/>,
+        }, 
       ]);
 
 
