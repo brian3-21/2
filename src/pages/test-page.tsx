@@ -1,9 +1,13 @@
 import { TestProps } from "../utils/interfase"
 
-const TestPage = ({props}:TestProps) =>{
+
+// are the same this or funcion 
+const TestPage = ({props = 'error'}:TestProps) =>{
   return (
     <>
       <h1>Wiri {props}</h1>
     </>
   )
 }
+
+export default TestPage
