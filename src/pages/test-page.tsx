@@ -1,8 +1,9 @@
-export default function TestPage( props:string ) {
+import { TestProps } from "../utils/interfase"
+
+const TestPage = ({props}:TestProps) =>{
   return (
     <>
-      <h1>WIRI {props}</h1>
+      <h1>Wiri {props}</h1>
     </>
   )
 }
-
