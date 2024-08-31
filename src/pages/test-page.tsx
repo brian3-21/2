@@ -7,7 +7,7 @@ const TestPage = ({props = 'error'}:TestProps) =>{
 
   return (
     <>
-      <h1>Wiri {props}</h1>
+      <h1>{props}</h1>
       <button onClick={() => {supabase.auth.signOut()}}>logout</button>
     </>
   )

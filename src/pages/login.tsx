@@ -1,33 +1,46 @@
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useState, useEffect } from 'react'
+import { Auth } from '@supabase/auth-ui-react'
+import { ThemeSupa } from '@supabase/auth-ui-shared'
+import { supabase } from '../services/supabase/create-client-supabase'
+import { Session } from '@supabase/supabase-js'
+import { useNavigate } from 'react-router-dom'
 
-type Inputs = {
-  example: string
-  exampleRequired: string
-}
 
-export default function App() {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<Inputs>()
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
 
-  console.log(watch("example")) // watch input value by passing the name of it
+export default function LoginPage() {
+  const [session, setSession] = useState<Session | null>(null)
+  const navigate = useNavigate();
 
-  return (
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {/* register your input into the hook by invoking the "register" function */}
-      <input defaultValue="test" {...register("example")} />
+  
 
-      {/* include validation with required or other standard HTML validation rules */}
-      <input {...register("exampleRequired", { required: true })} />
-      {/* errors will return when field validation fails  */}
-      {errors.exampleRequired && <span>This field is required</span>}
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session)
+    })
 
-      <input type="submit" />
-    </form>
-  )
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+
+    return () => subscription.unsubscribe()
+  }, [])
+
+  if (!session) {
+    return (<Auth 
+      supabaseClient={supabase}
+      providers={[]} 
+      appearance={{ theme: ThemeSupa }}
+      dark={true} 
+      />)
+  }
+  else {
+
+    navigate('2/dashboard')
+
+    return ( 
+      <div>Redirecionando</div>
+    )
+  }
 }
