@@ -1,7 +1,7 @@
-export default function ErrorPage() {
+export default function TestPage( props:string ) {
   return (
     <>
-      <h1>WIRI error</h1>
+      <h1>WIRI {props}</h1>
     </>
   )
 }
