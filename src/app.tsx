@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import TestPage from "./pages/test-page";
 import LoginPage from "./pages/login";
-import Dashboard from "./pages/dashboard-page";
+import Dashboard from "./pages/dashboard";
 
 export default function App(){
 

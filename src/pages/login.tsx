@@ -37,7 +37,9 @@ export default function LoginPage() {
   }
   else {
 
-    navigate('2/dashboard')
+    useEffect(() => {
+      navigate('2/dashboard')
+    }, [navigate]);
 
     return ( 
       <div>Redirecionando</div>
