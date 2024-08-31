@@ -1,18 +1,33 @@
-import { FormEventHandler, useEffect, useState } from 'react';
-import {supabase} from '../services/supabase/create-client-supabase'
-import { Auth } from '@supabase/auth-ui-react';
-import { ThemeSupa } from '@supabase/auth-ui-shared';
+import { useForm, SubmitHandler } from "react-hook-form"
 
-export default function LoginPage() {
+type Inputs = {
+  example: string
+  exampleRequired: string
+}
 
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>()
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
+
+  console.log(watch("example")) // watch input value by passing the name of it
 
   return (
-  <Auth
-        supabaseClient={supabase}
-        appearance={{ theme: ThemeSupa }}
-        providers={[]} // Incluye solo los proveedores deseados
-        dark= {true}
-        theme='dark'   
-  />
-  );
+    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
+    <form onSubmit={handleSubmit(onSubmit)}>
+      {/* register your input into the hook by invoking the "register" function */}
+      <input defaultValue="test" {...register("example")} />
+
+      {/* include validation with required or other standard HTML validation rules */}
+      <input {...register("exampleRequired", { required: true })} />
+      {/* errors will return when field validation fails  */}
+      {errors.exampleRequired && <span>This field is required</span>}
+
+      <input type="submit" />
+    </form>
+  )
 }
