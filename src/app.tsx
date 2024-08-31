@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import TestPage from "./pages/test-page";
 import LoginPage from "./pages/login";
+import Dashboard from "./pages/dashboard-page";
 
 export default function App(){
 
@@ -19,7 +20,7 @@ export default function App(){
         },
         {
           path: "2/dashboard",
-          element: <TestPage props='dashboard'/>,
+          element: <Dashboard/>,
           errorElement: <TestPage props='error element'/>,
         }, 
       ]);
